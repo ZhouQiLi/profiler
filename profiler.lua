@@ -58,8 +58,7 @@ local function hook(event)
     end
     if event == "return" then
         if #invokeStack > 0 then
-            local used = getTime() - invokeStack[#invokeStack]
-            remove(invokeStack, #invokeStack)
+            local used = getTime() - remove(invokeStack)
             record(info, used)
             collectgarbage("collect", 100)
         end
